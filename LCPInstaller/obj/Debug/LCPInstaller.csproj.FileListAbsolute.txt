@@ -1,0 +1,11 @@
+D:\Documents\LCPInstaller\LCPInstaller\bin\Debug\LCPInstaller.exe.config
+D:\Documents\LCPInstaller\LCPInstaller\bin\Debug\LCPInstaller.exe
+D:\Documents\LCPInstaller\LCPInstaller\bin\Debug\LCPInstaller.pdb
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.csproj.AssemblyReference.cache
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.csproj.SuggestedBindingRedirects.cache
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.Form1.resources
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.Properties.Resources.resources
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.csproj.GenerateResource.cache
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.csproj.CoreCompileInputs.cache
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.exe
+D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.pdb
