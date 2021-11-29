@@ -1,3 +1,1 @@
-"# LCP Installer" 
-"# Installer" 
-"# Installer" 
+# LCP Installer
