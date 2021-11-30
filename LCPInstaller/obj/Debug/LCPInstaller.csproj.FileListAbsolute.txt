@@ -9,3 +9,14 @@ D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.csproj.GenerateRes
 D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.csproj.CoreCompileInputs.cache
 D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.exe
 D:\Documents\LCPInstaller\LCPInstaller\obj\Debug\LCPInstaller.pdb
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\bin\Debug\LCPInstaller.exe.config
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\bin\Debug\LCPInstaller.exe
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\bin\Debug\LCPInstaller.pdb
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.csproj.AssemblyReference.cache
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.csproj.SuggestedBindingRedirects.cache
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.Form1.resources
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.Properties.Resources.resources
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.csproj.GenerateResource.cache
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.csproj.CoreCompileInputs.cache
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.exe
+C:\Users\booget\Downloads\Installer-main\Installer-main\LCPInstaller\obj\Debug\LCPInstaller.pdb
