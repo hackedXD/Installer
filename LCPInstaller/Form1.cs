@@ -56,7 +56,8 @@ namespace LCPInstaller
             }
         }
 
-        void installLCP() {
+        void installLCP()
+        {
             RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
             RegistryKey key = hklm.OpenSubKey("SOFTWARE\\JavaSoft\\Java Runtime Environment\\1.8");
             if (key != null)
@@ -65,11 +66,21 @@ namespace LCPInstaller
                 {
                     client.DownloadFile("https://assets.lunarproxy.me/server.cer", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "LCPcert.cer"));
                     String javaHome = (string)key.GetValue("JavaHome");
-                    Process.Start(javaHome + "\\bin\\keytool.exe", "-keystore \"" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.lunarclient\\jre\\zulu16.30.15-ca-fx-jre16.0.1-win_x64\\lib\\security\\cacerts\" -trustcacerts -importcert -alias lcproxy -storepass changeit -file \"" + Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "LCPcert.cer") + "\" -noprompt");
+                    Process.Start(javaHome + "\\bin\\keytool.exe", "-keystore \"" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.lunarclient\\jre\\zulu17.30.15-ca-fx-jre17.0.1-win_x64\\lib\\security\\cacerts\" -trustcacerts -importcert -alias lcproxy -storepass changeit -file \"" + Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "LCPcert.cer") + "\" -noprompt");
                     client.Dispose();
                 }
 
-                if (!File.Exists("C:\\Windows\\System32\\drivers\\etc\\hosts")) File.Create("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                if (!File.Exists("C:\\Windows\\System32\\drivers\\etc\\hosts"))
+                {
+                    DirectorySecurity dSecurity = Directory.GetAccessControl("C:\\Windows\\System32\\drivers\\etc");
+                    dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, AccessControlType.Allow));
+                    Directory.SetAccessControl("C:\\Windows\\System32\\drivers\\etc", dSecurity);
+
+                    File.Create("C:\\Windows\\System32\\drivers\\etc\\hosts");
+
+                    dSecurity.RemoveAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, AccessControlType.Allow));
+                    Directory.SetAccessControl("C:\\Windows\\System32\\drivers\\etc", dSecurity);
+                }
 
                 FileSecurity fSecurity = File.GetAccessControl("C:\\Windows\\System32\\drivers\\etc\\hosts");
 
@@ -78,9 +89,11 @@ namespace LCPInstaller
                 File.SetAccessControl("C:\\Windows\\System32\\drivers\\etc\\hosts", fSecurity);
 
                 String hostsFile = File.ReadAllText("C:\\Windows\\System32\\drivers\\etc\\hosts");
-                if(!hostsFile.Contains("51.195.220.243 assetserver.lunarclientprod.com"))
+                if (hostsFile.Contains("51.195.220.243 assetserver.lunarclientprod.com")) hostsFile = hostsFile.Replace("51.195.220.243 assetserver.lunarclientprod.com", "");
+                File.WriteAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", hostsFile);
+                if (!hostsFile.Contains("194.163.177.249 assetserver.lunarclientprod.com"))
                 {
-                    hostsFile += "\n51.195.220.243 assetserver.lunarclientprod.com";
+                    hostsFile += "\n194.163.177.249 assetserver.lunarclientprod.com";
                 }
                 File.WriteAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", hostsFile);
 
@@ -88,7 +101,8 @@ namespace LCPInstaller
                 File.SetAccessControl("C:\\Windows\\System32\\drivers\\etc\\hosts", fSecurity);
 
                 button1.Text = "Complete";
-            } else
+            }
+            else
             {
                 new Thread(noJava).Start();
             }
