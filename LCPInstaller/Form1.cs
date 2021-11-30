@@ -89,8 +89,15 @@ namespace LCPInstaller
                 File.SetAccessControl("C:\\Windows\\System32\\drivers\\etc\\hosts", fSecurity);
 
                 String hostsFile = File.ReadAllText("C:\\Windows\\System32\\drivers\\etc\\hosts");
-                if (hostsFile.Contains("51.195.220.243 assetserver.lunarclientprod.com")) hostsFile = hostsFile.Replace("51.195.220.243 assetserver.lunarclientprod.com", "");
-                File.WriteAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", hostsFile);
+                String[] hostsFileln = File.ReadAllLines("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                int i = 0;
+                foreach(String line in hostsFileln)
+                {
+                    if (line.Contains("assetserver.lunarclientprod.com")) hostsFileln[i] = "";
+                    i++;
+                }
+                File.WriteAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", String.Join("\n", hostsFileln));
+                hostsFile = File.ReadAllText("C:\\Windows\\System32\\drivers\\etc\\hosts");
                 if (!hostsFile.Contains("194.163.177.249 assetserver.lunarclientprod.com"))
                 {
                     hostsFile += "\n194.163.177.249 assetserver.lunarclientprod.com";
