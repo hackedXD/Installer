@@ -1,7 +1,7 @@
 
 # LCP Installer
 
-A Great Lunar Client Addon
+A Great LC Addon
  
 - ✨Magic ✨
 
