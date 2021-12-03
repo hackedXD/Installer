@@ -61,9 +61,9 @@ namespace LCPInstaller
             File.SetAccessControl("C:\\Windows\\System32\\drivers\\etc\\hosts", fSecurity);
 
             String replace = File.ReadAllText("C:\\Windows\\System32\\drivers\\etc\\hosts");
-            if (replace.Contains("51.195.220.243 assetserver.lunarclientprod.com"))
+            if (replace.Contains("194.163.177.249 assetserver.lunarclientprod.com"))
             {
-                replace = replace.Replace("51.195.220.243 assetserver.lunarclientprod.com", "");
+                replace = replace.Replace("194.163.177.249 assetserver.lunarclientprod.com", "");
             }
             File.WriteAllText("C:\\Windows\\System32\\drivers\\etc\\hosts", replace);
 
