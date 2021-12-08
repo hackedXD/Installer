@@ -1,0 +1,36 @@
+name: Build LCProxy Installer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout Code
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+      with:
+        msbuild-architecture: x64
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+      
+    - name: Restore Packages
+      run: nuget restore LCPInstaller.sln
+      
+    - name: Build LCProxy
+      run: msbuild LCPInstaller.sln -p:"Configuration=Release;DeployOnBuild=true"
+      
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2.3.0
+      with:
+        name: Build
+        path: LCPInstaller\bin\Release\LCPInstaller.exe
